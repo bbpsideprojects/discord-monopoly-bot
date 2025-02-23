@@ -1,9 +1,9 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { handleCardAction } = require('../utils/card_actions.js');
 const { shuffleArray } = require('../utils/utils.js');
-const { chanceCards, communityChestCards } = require('./JSONcards.json');
-const { properties, railroads, utilities } = require('./JSONbuyables.json');
-const { landing_events, passing_events } = require('./JSONevents.json');
+const { chanceCards, communityChestCards } = require('../utils/JSONcards.json');
+const { properties, railroads, utilities } = require('../utils/JSONbuyables.json');
+const { landing_events, passing_events } = require('../utils/JSONevents.json');
 //------------------------------------------------------------
 module.exports = {
     data: new SlashCommandBuilder()
