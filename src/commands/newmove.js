@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { handleCardAction } = require('../utils/card_actions.js');
+const { shuffleArray } = require('../utils/utils.js');
 const { chanceCards, communityChestCards } = require('./JSONcards.json');
 const { properties, railroads, utilities } = require('./JSONbuyables.json');
 const { landing_events, passing_events } = require('./JSONevents.json');
@@ -77,21 +78,25 @@ module.exports = {
                         break
                     case "communityChest":
                         if (game.communityChestCards && game.communityChestCards.length > 0) { // Check if the deck exists and is not empty
-                            const card = game.communityChestCards.shift();
+                            const randomIndex = Math.floor(Math.random() * game.communityChestCards.length);
+                            const card = game.communityChestCards.splice(randomIndex, 1)[0];
                             landing_event += `Community Chest: ${card.text}\n`;
                             await handleCardAction(game, player, card, landing_event, interaction, setupChannel);
                             game.communityChestCards.push(card);
+                            shuffleArray(game.communityChestCards);
                         } else {
                             console.error("Community Chest deck is empty or undefined.");
-                            landing_event += "The Community Chest deck is empty.\n"; // Inform the user
+                            landing_event += "The Community Chest deck is empty.\n"; 
                         }
                         break;
                     case "chance":
-                        if (game.chanceCards && game.chanceCards.length > 0) { // Check if the deck exists and is not empty
-                            const chanceCard = game.chanceCards.shift();
+                        if (game.chanceCards && game.chanceCards.length > 0) { 
+                            const randomIndex = Math.floor(Math.random() * game.chanceCards.length);
+                            const chanceCard = game.chanceCards.splice(randomIndex, 1)[0];
                             landing_event += `Chance: ${chanceCard.text}\n`;
                             await handleCardAction(game, player, chanceCard, landing_event, interaction, setupChannel);
                             game.chanceCards.push(chanceCard);
+                            shuffleArray(game.chanceCards);
                         } else {
                             console.error("Chance deck is empty or undefined.");
                             landing_event += "The Chance deck is empty.\n"; 

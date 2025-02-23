@@ -2,6 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField, ChannelType } = 
 const { chanceCards, communityChestCards } = require('./JSONcards.json');
 const { properties, railroads, utilities } = require('./JSONbuyables.json');
 const { landing_events, passing_events } = require('./JSONevents.json');
+const { shuffleArray } = require('../utils/utils.js');
 // discord--------------------------------------------------------------------------------------------------------
 module.exports = {
   data: new SlashCommandBuilder()
@@ -124,8 +125,8 @@ module.exports = {
         playerStats,
         properties, railroads, utilities,
         setupChannelId: interaction.channel.id,
-        chanceCards: [...chanceCards],
-        communityChestCards: [...communityChestCards]
+        chanceCards: shuffledChanceCards,
+        communityChestCards: shuffledCommunityChestCards
       };
       const firstPlayer = players[0];
       await interaction.followUp(`It's ${firstPlayer.username}'s turn!`);
