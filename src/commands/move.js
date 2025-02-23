@@ -21,6 +21,10 @@ module.exports = {
             const setupChannelId = game.setupChannelId;
             const setupChannel = client.games[gameID]?.setupChannelId;
             const player = game.playerStats.find(p => p.id === interaction.user.id);
+            //restrict--------
+            if (player.move_left !== 1) {
+                return interaction.reply("You cant move now!");
+            }
             //roll & move-------------------------------------------------------------------
             const previous_pos = player.at;
             let value = 0;
@@ -36,6 +40,7 @@ module.exports = {
                 rollmsg += `You roll double!\n`;
             } else {
                 player.doubles = 0;
+                player.move_left = 0;
             }
             if (player.doubles === 3) {
                 player.at = 11;

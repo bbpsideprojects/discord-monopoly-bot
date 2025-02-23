@@ -48,6 +48,7 @@ module.exports = {
             icon: player.icon,
           })
         }
+
       })
       for (let i = 0; i < playerPositions.length; i++) {
         let repeat = 0;
@@ -107,7 +108,7 @@ module.exports = {
       let whiterow = whitespace.repeat(midlayernum);
       for (let i = 1; i < midlayernum + 1; i++)
       {
-        midlayer += boardLayout[leftsideref - i].icon + whiterow + boardLayout[rightsideref - i].icon + `\n`;
+        midlayer += boardLayout[leftsideref - i].icon + whiterow + boardLayout[rightsideref + i].icon + `\n`;
       }
       //embed-------------------------------------------------------------------
       const Grid = `${toplayer}\n${midlayer}${buttomlayer}`
