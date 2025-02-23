@@ -6,6 +6,7 @@ module.exports = {
         .setDescription('"get me out mayyyyyybe"'),
 //------------------------------------------------------------
     run: async ({ interaction, client }) => {
+        await interaction.deferReply();
         try {
             //inits-------------------------------------------------------------------------
             const channelId = interaction.channel.id;

@@ -31,7 +31,6 @@ module.exports = {
 // function --------------------------------------------------------------
   run: async ({ interaction, client }) => {
     await interaction.deferReply();
-
     const players = [
       // get players name
       interaction.options.getUser('player-1'),

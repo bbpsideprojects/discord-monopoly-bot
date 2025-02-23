@@ -3,7 +3,7 @@ const propertiesData = require('./JSONbuyables.json');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('viewboard')
+    .setName('oldviewboard')
     .setDescription('View the current state of the Monopoly board'),
 
   run: async ({ interaction, client }) => {

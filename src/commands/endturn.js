@@ -6,9 +6,9 @@ module.exports = {
         .setDescription('End your turn and pass it to the next player'),
 //-------------------------------------------------------------------------------
     run: async ({ interaction, client }) => {
+        await interaction.deferReply();
         try {
             //init---------------------------------------------------------------
-            await interaction.deferReply();
             const channelId = interaction.channel.id;
             const gameEntry = Object.values(client.games).find(game => game.setupChannelId === channelId);
             const gameID = gameEntry.gameID;

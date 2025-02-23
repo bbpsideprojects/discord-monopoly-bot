@@ -11,6 +11,7 @@ module.exports = {
         .setDescription('Roll the dice and move your player'),
 //------------------------------------------------------------
     run: async ({ interaction, client }) => {
+        await interaction.deferReply();
         try {
             //inits-------------------------------------------------------------------------
             const channelId = interaction.channel.id;
