@@ -23,9 +23,8 @@ async function handleCardAction(game, player, card, landing_event, interaction, 
             landing_event += `Advance to ${game.properties.find(p => p.id === card.propertyId).name}.\n`;
             break;
         case "advanceToNearestRailroad":
-            // Find nearest railroad
             const railroads = game.railroads.map(r => r.id);
-            let nearestRailroad = railroads.find(r => r > player.at) || railroads[0]; // Wrap around
+            let nearestRailroad = railroads.find(r => r > player.at) || railroads[0]; 
             player.at = nearestRailroad;
             landing_event += `Advance to ${game.railroads.find(r => r.id === nearestRailroad).name}.\n`;
             break;
@@ -36,12 +35,12 @@ async function handleCardAction(game, player, card, landing_event, interaction, 
             landing_event += `Advance to ${game.utilities.find(u => u.id === nearestUtility).name}.\n`;
             break;
         case "getOutOfJailFree":
-            player.getOutOfJailFree = true; // Set a flag
+            player.cards.push("Get Out of Jail Free");
             landing_event += "Get Out of Jail Free!\n";
             break;
         case "payPerBuilding":
-            const houseCount = player.properties.filter(p => p.houses > 0).length; // Count houses
-            const hotelCount = player.properties.filter(p => p.hotels > 0).length; // Count hotels
+            const houseCount = player.properties.filter(p => p.houses > 0).length; 
+            const hotelCount = player.properties.filter(p => p.hotels > 0).length;
             const totalPayment = houseCount * card.houseAmount + hotelCount * card.hotelAmount;
             player.money -= totalPayment;
             landing_event += `Pay street repairs: $${totalPayment}.\n`;
@@ -71,13 +70,13 @@ async function handleCardAction(game, player, card, landing_event, interaction, 
             }
             break;
         case "payPerHouse":
-            const houseCount2 = player.properties.filter(p => p.houses > 0).length; // Count houses
+            const houseCount2 = player.properties.filter(p => p.houses > 0).length;
             const totalPayment2 = houseCount2 * card.amount;
             player.money -= totalPayment2;
             landing_event += `Pay house repairs: $${totalPayment2}.\n`;
             break;
         case "payPerHotel":
-            const hotelCount2 = player.properties.filter(p => p.hotels > 0).length; // Count hotels
+            const hotelCount2 = player.properties.filter(p => p.hotels > 0).length; 
             const totalPayment3 = hotelCount2 * card.amount;
             player.money -= totalPayment3;
             landing_event += `Pay hotel repairs: $${totalPayment3}.\n`;

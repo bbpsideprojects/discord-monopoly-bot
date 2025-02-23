@@ -99,6 +99,7 @@ module.exports = {
         can_buy: 0,
         turn_order: index + 1,
         doubles: 0,
+        contemplating_life: 0,
       }));
       
       // creating thread-------------------------------------
@@ -118,7 +119,10 @@ module.exports = {
           await thread.send(`Welcome to the game, ${player.username}. This thread is made in case you want to keep something a secret.`); // Access username directly
         }
       }
-      
+      const shuffledChanceCards = [...chanceCards];
+      const shuffledCommunityChestCards = [...communityChestCards];
+      shuffleArray(shuffledChanceCards);
+      shuffleArray(shuffledCommunityChestCards);
       client.games = client.games || {};
       client.games[gameID] = {
         gameID,

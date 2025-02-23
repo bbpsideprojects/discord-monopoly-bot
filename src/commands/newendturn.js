@@ -48,11 +48,13 @@ module.exports = {
                 //jail time hype!?-------------------------------------------------
                 if (nextPlayer.jail > 0) 
                 {
+                    nextPlayer.move_left = 0;
+                    nextPlayer.contemplaing_life = 1;
                     replyMessage += `\n**${nextPlayer.username}** is in jail! They must choose:\n`;
-                    replyMessage += "1️⃣ Pay $50 to get out of jail.\n";
-                    replyMessage += "2️⃣ Roll for doubles to get out of jail.\n";
+                    replyMessage += "1️⃣ Pay $50 to get out of jail using /getmeout.\n";
+                    replyMessage += "2️⃣ Roll for doubles to get out of jail using /jaildice.\n";
                     if (nextPlayer.cards.includes('Get Out of Jail Free')) {
-                        replyMessage += "3️⃣ Use 'Get Out of Jail Free' card.\n";
+                        replyMessage += "3️⃣ Use 'Get Out of Jail Free' card by also using /getmeout.\n";
                     }
                     replyMessage += `and no,you can't do anything until you choose :)`
                 }
