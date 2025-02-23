@@ -1,0 +1,17 @@
+{
+  "landing_events": [
+    { "pos":"11","text": "You landed in jail!", "action": "goToJail" },
+    { "pos":"31","text": "You WILL go in jail!", "action": "goToJail" },
+    { "pos":"3","text": "You land on community chest!", "action": "communityChest" },
+    { "pos":"34","text": "You land on community chest!", "action": "communityChest" },
+    { "pos":"18","text": "You land on community chest!", "action": "communityChest" },
+    { "pos":"8","text": "You land on chance!", "action": "chance" },
+    { "pos":"23","text": "You land on chance!", "action": "chance" },
+    { "pos":"37","text": "You land on chance!", "action": "chance" },
+    { "pos":"39","text": "You land on luxury tax!", "action": "luxuryTax" },
+    { "pos":"37","text": "You land on income tax!", "action": "incomeTax" }
+  ],
+  "passing_events": [
+
+  ]
+}

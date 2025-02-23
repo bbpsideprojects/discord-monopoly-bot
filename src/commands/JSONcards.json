@@ -1,0 +1,37 @@
+{
+  "chanceCards": [
+    { "text": "Advance to GO (Collect $200)", "action": "advanceToGo" },
+    { "text": "Bank error in your favor – collect $75", "action": "collectMoney", "amount": 75 },
+    { "text": "Go to Jail – Do not pass Go, do not collect $200", "action": "goToJail" },
+    { "text": "Advance to Illinois Ave.", "action": "advanceToProperty", "propertyId": 25 },
+    { "text": "Take a walk on the Boardwalk.", "action": "advanceToProperty", "propertyId": 40 },
+    { "text": "Your building loan matures – Collect $150", "action": "collectMoney", "amount": 150 },
+    { "text": "You have won second prize in a beauty contest – Collect $10", "action": "collectMoney", "amount": 10 },
+    { "text": "Receive $25 consultancy fee", "action": "collectMoney", "amount": 25 },
+    { "text": "Street repairs – Pay $20 per house/hotel", "action": "payPerBuilding", "houseAmount": 20, "hotelAmount": 20 },
+    { "text": "You have been elected Chairman of the Board – Pay each player $50", "action": "payEachPlayer", "amount": 50 },
+    { "text": "Advance to the nearest Railroad. If unowned, you may buy it. If owned, throw dice and pay the owner twice the rental to which he is otherwise entitled.", "action": "advanceToNearestRailroad" },
+    { "text": "Advance to the nearest Utility. If unowned, you may buy it. If owned, throw dice and pay the owner twice the rental to which he is otherwise entitled.", "action": "advanceToNearestUtility" },
+    { "text": "Get out of Jail Free", "action": "getOutOfJailFree" },
+    { "text": "Pay $15 for repairs on each of your houses", "action": "payPerHouse", "amount": 15 },
+    { "text": "Pay $100 for repairs on your hotel", "action": "payPerHotel", "amount": 100 }
+  ],
+  "communityChestCards": [
+    { "text": "Advance to GO (Collect $200)", "action": "advanceToGo" },
+    { "text": "Doctor's fees – Pay $50", "action": "payMoney", "amount": 50 },
+    { "text": "Go to Jail – Do not pass Go, do not collect $200", "action": "goToJail" },
+    { "text": "Bank error in your favor – collect $200", "action": "collectMoney", "amount": 200 },
+    { "text": "You have won second prize in a beauty contest – Collect $100", "action": "collectMoney", "amount": 100 },
+    { "text": "From sale of stock you get $50", "action": "collectMoney", "amount": 50 },
+    { "text": "Holiday Fund matures – Collect $100", "action": "collectMoney", "amount": 100 },
+    { "text": "Receive $200 for services", "action": "collectMoney", "amount": 200 },
+    { "text": "You are assessed for street repairs – $40 per house, $115 per hotel", "action": "payPerBuilding", "houseAmount": 40, "hotelAmount": 115 },
+    { "text": "You have a baby!", "action": "collectMoney", "amount": 100 },
+    { "text": "You inherit $100", "action": "collectMoney", "amount": 100 },
+    { "text": "You are the beneficiary of a will – Collect $50", "action": "collectMoney", "amount": 50 },
+    { "text": "It is your birthday – Collect $10 from each player", "action": "collectFromEachPlayer", "amount": 10 },
+    { "text": "Get out of Jail Free", "action": "getOutOfJailFree" },
+    { "text": "Pay hospital Fees of $100", "action": "payMoney", "amount": 100 },
+    { "text": "Pay School Fees of $150", "action": "payMoney", "amount": 150 }
+  ]
+}
