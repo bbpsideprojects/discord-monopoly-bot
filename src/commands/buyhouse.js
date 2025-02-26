@@ -1,6 +1,4 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { handleCardAction } = require('../utils/card_actions.js');
-const { shuffleArray } = require('../utils/utils.js');
 const { chanceCards, communityChestCards } = require('../utils/JSONcards.json');
 const { properties, railroads, utilities } = require('../utils/JSONbuyables.json');
 const { landing_events, passing_events } = require('../utils/JSONevents.json');
@@ -22,7 +20,7 @@ module.exports = {
             if (player.can_buy !== 1) {
                 return interaction.reply("You cant buy!");
             }
-            //roll & move-------------------------------------------------------------------
+            //buy---------------------------------------------------------------------------
             const landedBuyables = 
             properties.find(p => p.id === current_pos) ||
             railroads.find(p => p.id === current_pos) ||
@@ -32,6 +30,17 @@ module.exports = {
             if (player.money > landedBuyables.price) {
                 player.money -= landedBuyables.price
                 buymessage += `you buy ${landedBuyables.name}`
+                if (landedBuyables.type = 'P') { 
+                    player.properties.push({ name: landedBuyables.name, houses: 0, type: 'P' });
+                }
+                if (landedBuyables.type = 'R') { 
+                    const railroadamt = player.properties.filter(p => p.type === 'R').length + 1;
+                    player.properties.push({ name: landedBuyables.name, amount: railroadamt, type: 'R' });
+                }
+                if (landedBuyables.type = 'U') { 
+                    const utilitiesamt = player.properties.filter(p => p.type === 'U').length + 1;
+                    player.properties.push({ name: landedBuyables.name, amount: utilitiesamt, type: 'R' });
+                }
             } else {
                 buymessage += `not enough money to buy ${landedBuyables.name}`
             }
