@@ -21,6 +21,7 @@ module.exports = {
                 return interaction.reply("You cant buy!");
             }
             //buy---------------------------------------------------------------------------
+            const current_pos = player.at;
             const landedBuyables = 
             properties.find(p => p.id === current_pos) ||
             railroads.find(p => p.id === current_pos) ||

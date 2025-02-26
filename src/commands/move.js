@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { handleCardAction } = require('../utils/card_actions.js');
 const { shuffleArray } = require('../utils/utils.js');
+const { handleLandedBuyable } = require('../utils/handlelanding.js');
 const { chanceCards, communityChestCards } = require('../utils/JSONcards.json');
 const { properties, railroads, utilities } = require('../utils/JSONbuyables.json');
 const { landing_events, passing_events } = require('../utils/JSONevents.json');
@@ -110,44 +111,8 @@ module.exports = {
                         
                 }
             }
-            //buyables----------------------------------------------------------------------
-            const landedBuyables = 
-            properties.find(p => p.id === current_pos) ||
-            railroads.find(p => p.id === current_pos) ||
-            utilities.find(p => p.id === current_pos);
-            let landedbuyablemessage = ``;
-            //property case----------
-            if (landedBuyables) 
-            {
-                if (landedBuyables.owner && landedBuyables.owner !== player.id)
-                {
-                    const owner = playerStats.find(p => p.id === landedBuyables.owner);
-                    let rent = 0;
-                    if (landedBuyables.type === 'P')
-                    {
-                        rent = landedBuyables.rent[landedBuyables.houses || 0];
-                    }
-                    if (landedBuyables.type === 'R')
-                    {
-                        const ownedrailroads = playerStats.find(p => p.id === landedBuyables.owner).properties.filter(prop => prop.type === 'R').length;
-                        rent = landedBuyables.rent[ownedrailroads - 1];
-                    }
-                    if (landedBuyables.type === 'U')
-                    {
-                        const ownedutilities = playerStats.find(p => p.id === landedBuyables.owner).properties.filter(prop => prop.type === 'U').length;
-                        rent = diceRoll * landedBuyables.diceMultiplier[ownedutilities - 1];
-                    }
-                    landedbuyablemessage += `This property is owned by ${owner.username}. You pay $${rent} rent.\n`;
-                    player.money -= rent;
-                    owner.money += rent;
-                }else if (!landedBuyables.owner) {
-                    landedbuyablemessage += `You landed on ${landedBuyables.name},you can buy it for ${landedBuyables.price}!\n`
-                    player.can_buy = 1;
-                } else {
-                    landedbuyablemessage += `landed on ${landedBuyables.name},you can build!\n`
-                    player.can_build = 1;
-                }
-            }
+            //buyables----------------
+            let landedbuyablemessage = handleLandedBuyable(player, playerStats, current_pos, diceRoll);
             //send some stuffs
             await interaction.reply(`${rollmsg}You rolled ${diceRoll}. You are now on space ${current_pos}\n${passing_event}${landing_event}${landedbuyablemessage}`);
         //boring part---------------------------------------------------------------
