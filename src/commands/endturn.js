@@ -34,6 +34,7 @@ module.exports = {
             //end-turn----------------------------------------------------------
             player.is_turn = 0;
             player.move_left = 0;
+            player.can_buy = 0;
             const currentTurnOrder = player.turn_order;
             const nextPlayer = playerStats.find(p => p.turn_order === (currentTurnOrder % playerStats.length) + 1);
             let replyMessage = `Your turn has ended. `;

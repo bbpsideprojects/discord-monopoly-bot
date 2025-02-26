@@ -141,7 +141,7 @@ module.exports = {
                     player.money -= rent;
                     owner.money += rent;
                 }else if (!landedBuyables.owner) {
-                    landedbuyablemessage += `You landed on ${landedBuyables.name},you can buy it!\n`
+                    landedbuyablemessage += `You landed on ${landedBuyables.name},you can buy it for ${landedBuyables.price}!\n`
                     player.can_buy = 1;
                 } else {
                     landedbuyablemessage += `landed on ${landedBuyables.name},you can build!\n`
