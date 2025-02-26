@@ -5,8 +5,8 @@ const { landing_events, passing_events } = require('../utils/JSONevents.json');
 //------------------------------------------------------------
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName('buy!')
-        .setDescription('buy the housewq'),
+        .setName('buy')
+        .setDescription('buy the house'),
 //------------------------------------------------------------
     run: async ({ interaction, client }) => {
         try {

@@ -9,7 +9,7 @@
     { "pos":"23","text": "You land on chance!", "action": "chance" },
     { "pos":"37","text": "You land on chance!", "action": "chance" },
     { "pos":"39","text": "You land on luxury tax!", "action": "luxuryTax" },
-    { "pos":"37","text": "You land on income tax!", "action": "incomeTax" }
+    { "pos":"5","text": "You land on income tax!", "action": "incomeTax" }
   ],
   "passing_events": [
 
